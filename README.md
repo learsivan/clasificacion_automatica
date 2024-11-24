@@ -17,7 +17,7 @@
     - [Regresión Logística](#regresión-logística)
     - [Árbol de Decisión](#árbol-de-decisión)
     - [Random Forest](#random-forest)
-    - [Naive Bayes:](#naive-bayes)
+    - [Naive Bayes](#naive-bayes)
 
 ## Introducción
 
@@ -143,16 +143,16 @@ La Regresión Logística fue seleccionada como el modelo final debido a su desem
 En un escenario de implementación del modelo propuesto, éste proporcionará a la empresa financiera una herramienta robusta para automatizar la clasificación de quejas de los clientes. Esto optimiza los tiempos de respuesta, reduce la carga de trabajo manual y mejora la experiencia del cliente. Además, el enfoque propuesto puede ser actualizado con nuevos datos para mantener su relevancia y efectividad a lo largo del tiempo.
 
 #### Regresión Logística
-* **Exactitud :** 96.58%##
-* **F1-Score :** 96.57%##
+* **Exactitud :** 96.58%
+* **F1-Score :** 96.57%
 
 #### Árbol de Decisión
-* **Exactitud :** 82.37%##
-* **F1-Score :** 82.36%##
+* **Exactitud :** 82.37%
+* **F1-Score :** 82.36%
 
 #### Random Forest
-* **Exactitud :** 87.25%##
-* **F1-Score :** 87.18%##
+* **Exactitud :** 87.25%
+* **F1-Score :** 87.18%
 
 #### Naive Bayes
 * **Exactitud :** 76.67%
