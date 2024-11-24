@@ -22,39 +22,47 @@
 ## Introducción
 
 Las quejas de los clientes en el sector financiero son un aspecto crucial para la mejora continua de los productos y servicios ofrecidos. Estas quejas no solo reflejan insatisfacciones, sino que también brindan valiosa información sobre posibles áreas de mejora. Según Kumar et al. (2018), la correcta gestión de las quejas no solo resuelve problemas inmediatos, sino que también permite construir una relación más sólida con los clientes, lo que lleva a una mayor lealtad y satisfacción. Resolver quejas de manera eficiente es clave para mantener la competitividad en un mercado tan dinámico como el financiero, donde los clientes buscan una atención al cliente rápida y eficaz.
+En el contexto de la empresa financiera, las quejas a menudo se presentan en forma de datos no estructurados en tickets de atención. Estos tickets incluyen una variedad de problemas que los clientes experimentan con los productos, como tarjetas de crédito, servicios bancarios y préstamos. Según Zhang et al. (2017), la presencia de datos textuales no estructurados puede representar un desafío para las empresas, ya que su análisis manual es intensivo en recursos y tiempo, lo que retrasa la capacidad de respuesta. Esto genera una sobrecarga de trabajo para el personal de atención, lo que puede afectar negativamente la eficiencia y la experiencia del cliente.
+Con el crecimiento de las empresas y la expansión de su base de clientes, la carga de trabajo relacionada con el manejo de quejas aumenta. En este contexto, el uso de tecnología para automatizar el proceso de clasificación de quejas es fundamental. Pérez et al. (2019) destacan que la implementación de sistemas automatizados que pueden categorizar y priorizar tickets de queja permite a las empresas no solo reducir la carga de trabajo manual, sino también mejorar la precisión y velocidad en la resolución de problemas. La automatización, a través de técnicas como el procesamiento de lenguaje natural (PLN), puede transformar los datos no estructurados en información útil de manera mucho más eficiente que los métodos tradicionales.
+Además, la automatización del análisis de quejas tiene el potencial de proporcionar información en tiempo real sobre las áreas de mejora de los productos y servicios. Según Batra et al. (2020), los sistemas automatizados de clasificación de quejas no solo permiten una respuesta más rápida, sino que también generan datos valiosos para la mejora continua. Estos sistemas pueden identificar tendencias en las quejas de los clientes, lo que ayuda a la empresa a anticipar problemas antes de que escalen. De esta manera, la implementación de soluciones basadas en inteligencia artificial y análisis de datos en la gestión de quejas se convierte en un factor clave para el éxito a largo plazo de la empresa financiera.
 
+## Situación del problema
+La empresa financiera tiene acumulación y el manejo manual de tickets de atención al cliente, estos tickets contienen quejas y solicitudes de los clientes, usualmente redactadas en lenguaje natural y relacionadas con diversos productos y servicios como tarjetas de crédito, banca y préstamos/hipotecas.
+El proceso tradicional requiere que múltiples empleados analicen y clasifiquen manualmente cada ticket, lo que resulta en un uso intensivo de recursos humanos, tiempos prolongados de respuesta y un margen de error significativo en la categorización. A medida que la base de clientes crece, la cantidad de tickets aumenta exponencialmente, haciendo que este enfoque manual se vuelva ineficiente y afecte la capacidad de la empresa para atender rápidamente a los clientes, poniendo en riesgo su satisfacción y fidelidad.
+Además, la falta de un sistema automatizado limita la capacidad de la empresa para identificar patrones y problemas recurrentes en sus productos y servicios, lo que impide la implementación de mejoras proactivas. Este enfoque reactivo no solo dificulta la resolución ágil de quejas, sino que también reduce la capacidad de la organización para obtener ventajas competitivas mediante la innovación basada en las necesidades de los clientes.
+En resumen, la empresa enfrenta un desafío crítico: optimizar el manejo de tickets para garantizar la satisfacción del cliente mientras minimiza costos operativos y mejora su capacidad de respuesta.
 
 ### Métodos Utilizados
 Recopilación de datos.
-El conjunto de datos para el estudio está compuesto por 1,460 registros y 81 columnas, la primera columna Id, es un serial
-numérico asignado a cada registro por lo que no se la toma en cuenta en el análisis. El detalle de las columnas y contenido
-de las columnas se puede encontrar en el archivo "data_description.txt".
+El conjunto de datos para el estudio está compuesto por 78,313 registros y 22 columnas, la data esta almacenada en una base de datos en formato JSON, por lo que, para su tratamiento y análisis, necesitamos convertirlos a un formato de dataframe, utilizando para ese fin la librería REQUEST de Python.
 
 Análisis de la calidad de los datos:
 Identificacion de datos faltantes,análisis de calidad
 
 Análisis Exploratorio de Datos (EDA):
-Análisis de la variable objetivo: Salesprice
-Análisis de variables numéricas
-Análisis de Correlación
-Análisis de variables categóricas
+Renombrado de columnas
+Preparación del texto para el modelado (conversión a minúsculas)
+Lematización y extración de POS tags.
+Análisis de exploratorio del texto (longitud de carácteres, palabras más frecuentes, nube de palabras, unigramas, bigramas y trigramas)
 
-Desarrollo de Modelos Estadisticos:
-Regresion Lineal 
-Ridge
-Lasso
-Elasticnet
+Desarrollo de Modelos:
+Modelo de Regresión Logística
+Modelo de Árbol de Decisión
+Modelo Random Forest
+Modelo de Naive Bayes
 
 ### Tecnologías
 * Python
 * Pandas
-* Numpy 
+* Numpy
+* NLTK
+* Spacy
 * Matplotlib
-* Pylab 
+* Plotly
 * Seaborn 
+* Wordcloud
 * Sklearn
-* Statsmodels
-
+* 
 ## Descarga y Configuración
 ### Requisitos Previos
 
@@ -83,37 +91,66 @@ jupyter notebook <MDSv5_ML_P1_Regresion Avanzada.ipynb>
 
 ## Declaración del Problema
 
-En el competitivo mercado inmobiliario australiano, los precios de las propiedades pueden variar ampliamente en
-función de factores económicos, sociales y específicos del inmueble, como la ubicación, el tamaño, la antigüedad 
-y el estado de mantenimiento. Para capitalizar estas variaciones de manera rentable, la empresa busca identificar
-propiedades cuyo valor actual esté por debajo de su valor de mercado real, lo que representa una oportunidad de 
-compra estratégica. 
-Esta necesidad de predecir con precisión los precios surge de la intención de invertir únicamente en propiedades 
-que, según un análisis, ofrecen el potencial de ser revendidas con una ganancia considerable. Con un conjunto de
-datos disponible de ventas y la aplicación de modelos estadísticos avanzados, la empresa pretende no solo evitar 
-compras de alto riesgo, sino también optimizar su portafolio de inversiones para maximizar el retorno
+La empresa financiera tiene acumulación y el manejo manual de tickets de atención al cliente, estos tickets contienen quejas y solicitudes de los clientes, usualmente redactadas en lenguaje natural y relacionadas con diversos productos y servicios como tarjetas de crédito, banca y préstamos/hipotecas.
+El proceso tradicional requiere que múltiples empleados analicen y clasifiquen manualmente cada ticket, lo que resulta en un uso intensivo de recursos humanos, tiempos prolongados de respuesta y un margen de error significativo en la categorización. A medida que la base de clientes crece, la cantidad de tickets aumenta exponencialmente, haciendo que este enfoque manual se vuelva ineficiente y afecte la capacidad de la empresa para atender rápidamente a los clientes, poniendo en riesgo su satisfacción y fidelidad.
+Además, la falta de un sistema automatizado limita la capacidad de la empresa para identificar patrones y problemas recurrentes en sus productos y servicios, lo que impide la implementación de mejoras proactivas. Este enfoque reactivo no solo dificulta la resolución ágil de quejas, sino que también reduce la capacidad de la organización para obtener ventajas competitivas mediante la innovación basada en las necesidades de los clientes.
+En resumen, la empresa enfrenta un desafío crítico: optimizar el manejo de tickets para garantizar la satisfacción del cliente mientras minimiza costos operativos y mejora su capacidad de respuesta.
 
 
 ### Objetivo General
 
-Desarrollar un modelo estadístico predictivo de regresión avanzada para estimar con mayor precisión el precio de
-venta de propiedades residenciales en el mercado australiano, con el fin de identificar oportunidades de inversión 
-en las que los inmuebles se encuentren subvalorados con respecto a su valor real.
+Desarrollar un modelo basado en técnicas de Procesamiento de Lenguaje Natural, para clasificar de manera eficiente y precisa las quejas de los clientes en cinco categorías principales: tarjetas de crédito/tarjetas de prepago, servicios de cuentas bancarias, reporte de robo/disputa, hipotecas/préstamos y otros, de tal forma que este modelo permitirá optimizar el sistema de tickets de atención al cliente, facilitando la identificación rápida de problemas, mejorando la oferta de servicios y fortaleciendo la capacidad de respuesta de la empresa Financiera.
 
 ### Preparación de Datos:
 
-1. Entendimiento de los Datos
-2. Manipulación y limpieza de Datos.
-2.1 Dropping-Data
-2.2 Derived-Data
-3. Analisis Exploratorio de Datos: (EDA).
-3.1 Plot numerical data
-3.2 Plot categorical data
-4. Tratamiento de variables categóricas 
-4.1 Calculo los valores faltantes
-4.2 Identificion de outliers
+1. Recopilación de datos.
+2. Análisis Exploratorio de Datos (EDA).
+2.1 Renombrar columnas
+2.2 Preparación del texto para el modelado
+2.3 Lematización y extracción de POS tags
+2.4 Análisis exploratorio de datos para famliarizarse con la información
+3. Modelado mediante Non-Negative Matrix Factorization (NMF).
+3.1 Definición del mejor número de tópicos
+3.1 Topicos establecidos
 
 ### Construcción y Evaluación del Modelo
+
+1. Modelo de Regresión Logística 
+1.1 División de datos de entrenamiento y prueba.
+1.2 Ajustar el modelo 
+1.3 Preparación del modelo usando Regresión Lineal
+1.4 Prediccion y evaluacion
+
+
+1. Modelo de Árbol de Decisión 
+1.1 División de datos de entrenamiento y prueba.
+1.2 Ajustar el modelo 
+1.3 Preparación del modelo usando Regresión Lineal
+1.4 Prediccion y evaluacion
+
+
+1. Modelo Random Forest
+1.1 División de datos de entrenamiento y prueba.
+1.2 Ajustar el modelo 
+1.3 Preparación del modelo usando Regresión Lineal
+1.4 Prediccion y evaluacion
+
+1. Modelo Naive Bayes 
+1.1 División de datos de entrenamiento y prueba.
+1.2 Ajustar el modelo 
+1.3 Preparación del modelo usando Regresión Lineal
+1.4 Prediccion y evaluacion
+
+
+
+
+
+
+
+
+
+
+
 
 1. Primer modelo solo con variables numericas 
 1.1 División de datos de entrenamiento y prueba.
