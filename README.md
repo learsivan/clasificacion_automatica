@@ -155,5 +155,5 @@ En un escenario de implementación del modelo propuesto, éste proporcionará a 
 * **F1-Score :** 87.18%##
 
 #### Naive Bayes
-* **Exactitud :** 76.67%##
-* **F1-Score :** 75.63%##
+* **Exactitud :** 76.67%
+* **F1-Score :** 75.63%
